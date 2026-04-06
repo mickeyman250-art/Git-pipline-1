@@ -23,7 +23,7 @@ pipeline {
             steps {
                 echo 'Starting simple HTTP server...'
                 sh '''
-                nohup python3 -m http.server ${APP_PORT} &
+                nohup python3 -m http.server ${APP_PORT} --bind 0.0.0.0 > server.log 2>&1 &
                 '''
                 sleep 5
             }
