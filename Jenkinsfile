@@ -37,8 +37,12 @@ pipeline {
         }
 
         stage('Deploy') {
-            steps {
-                echo 'Static site deployed (served locally)'
+    steps {
+        echo 'Deploying to Nginx root...'
+        sh '''
+        sudo cp -r $WORKSPACE/* /var/www/html/Sign-up-Form/
+        sudo systemctl reload nginx
+        '''
             }
         }
     }
