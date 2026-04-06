@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Config
+clusters:
+- name: "jambonz-hz-2"
+  cluster:
+    server: "https://rancher.vultik.com/k8s/clusters/c-hqm2n"
+
+users:
+- name: "jambonz-hz-2"
+  user:
+    token: "kubeconfig-u-b2v8gpcj8t:8lrvx6zjcws7dwqncljgdrd4x9l2z2fmp6rd6sr6vb8n554p8fx5cm"
+
+
+contexts:
+- name: "jambonz-hz-2"
+  context:
+    user: "jambonz-hz-2"
+    cluster: "jambonz-hz-2"
+
+current-context: "jambonz-hz-2"
