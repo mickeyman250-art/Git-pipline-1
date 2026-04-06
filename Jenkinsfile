@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        APP_PORT = '8000'
+    }
+
     stages {
 
         stage('Checkout Code') {
@@ -11,19 +15,30 @@ pipeline {
 
         stage('Build') {
             steps {
-                echo 'Building project...'
+                echo 'No build needed for static HTML/CSS'
             }
         }
 
-        stage('Test') {
+        stage('Run App') {
             steps {
-                echo 'Running tests...'
+                echo 'Starting simple HTTP server...'
+                sh '''
+                nohup python3 -m http.server ${APP_PORT} &
+                '''
+                sleep 5
+            }
+        }
+
+        stage('Verify App') {
+            steps {
+                echo 'Checking if app is running...'
+                sh 'curl http://localhost:${APP_PORT}'
             }
         }
 
         stage('Deploy') {
             steps {
-                echo 'Deploying application...'
+                echo 'Static site deployed (served locally)'
             }
         }
     }
