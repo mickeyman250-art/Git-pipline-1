@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create User</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section class="card">
+    <header>
+        <h2 class="card-title">Create user</h2>
+        <p class="card-subtitle">
+            Assign permission groups, carriers, and temporary credentials.
+        </p>
+    </header>
+
+    <form method="POST" action="#">
+        <div class="form-grid">
+
+            <label>
+                Full Name
+                <input type="text" name="fullName" required placeholder="Jane Smith">
+            </label>
+
+            <label>
+                Email
+                <input type="email" name="email" required placeholder="user@example.com">
+            </label>
+
+            <label>
+                Password
+                <input type="password" name="password" required placeholder="Temporary password">
+            </label>
+
+            <label>
+                Group
+                <select name="groupId">
+                    <option value="">Default</option>
+                    <option value="1">Admin</option>
+                    <option value="2">User</option>
+                </select>
+            </label>
+
+            <label>
+                Carrier
+                <select name="carrierId">
+                    <option value="">Default</option>
+                    <option value="1">Carrier A</option>
+                    <option value="2">Carrier B</option>
+                </select>
+            </label>
+
+            <div class="actions">
+                <a href="#" class="btn btn-ghost">Cancel</a>
+                <button type="submit" class="btn btn-primary">Create user</button>
+            </div>
+
+        </div>
+    </form>
+</section>
+
+</body>
+</html>
