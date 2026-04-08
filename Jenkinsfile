@@ -40,7 +40,7 @@ pipeline {
     steps {
         echo 'Deploying to Nginx root...'
         sh '''
-        sudo cp -r $WORKSPACE/* /var/www/html/Sign-up-Form/
+        sudo cp * /var/www/html/Sign-up-Form/
         sudo systemctl reload nginx
         '''
             }
