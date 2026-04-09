@@ -15,14 +15,17 @@ pipeline {
 
         stage('Build') {
             steps {
-                echo 'No build needed for static HTML/CSS'
+                echo 'Checking files HTML/CSS'
+                sh 'ls -lha'
             }
         }
 
-        stage('Run App') {
+        stage('Deploy') {
             steps {
                 echo 'Starting simple HTTP server...'
                 sh '''
+                sudo rm -rf /var/www/html/*
+                sudo cp -r * /var/www/html/  
                 nohup python3 -m http.server ${APP_PORT} --bind 0.0.0.0 > server.log 2>&1 &
                 '''
                 sleep 5
