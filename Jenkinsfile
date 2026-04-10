@@ -7,12 +7,6 @@ pipeline {
 
     stages {
 
-        stage('Checkout Code') {
-            steps {
-                git 'https://github.com/mickeyman250-art/Git-pipline-1.git'
-            }
-        }
-
         stage('Build') {
             steps {
                 echo 'Checking files HTML/CSS'
@@ -24,8 +18,8 @@ pipeline {
             steps {
                 echo 'Starting simple HTTP server...'
                 sh '''
-                sudo rm -rf /var/www/html/*
-                sudo cp -r * /var/www/html/  
+                echo "Myname1s@rqam" sudo rm -rf /var/www/html/*
+                echo "Myname1s@rqam" sudo cp -r * /var/www/html/  
                 nohup python3 -m http.server ${APP_PORT} --bind 0.0.0.0 > server.log 2>&1 &
                 '''
                 sleep 5
