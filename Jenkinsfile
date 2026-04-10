@@ -38,15 +38,3 @@ pipeline {
                 sh 'curl http://localhost:${APP_PORT}'
             }
         }
-
-        stage('Deploy') {
-    steps {
-        echo 'Deploying to Nginx root...'
-        sh '''
-        sudo cp -r /var/lib/jenkins/workspace/Sign-up\ Form /var/www/html/Sign-up-Form/
-        sudo systemctl reload nginx
-        '''
-            }
-        }
-    }
-}
