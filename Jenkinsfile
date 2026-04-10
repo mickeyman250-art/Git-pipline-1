@@ -38,3 +38,5 @@ pipeline {
                 sh 'curl http://localhost:${APP_PORT}'
             }
         }
+    }
+}
