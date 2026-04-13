@@ -18,8 +18,9 @@ pipeline {
             steps {
                 echo 'Starting simple HTTP server...'
                 sh '''
-                echo "Myname1s@rqam" sudo rm -rf /var/www/html/cicd
-                echo "Myname1s@rqam" sudo cp -r * /var/www/html/cicd
+                rm -rf /var/www/html/cicd
+                cp -r * /var/www/html/cicd
+                cd /var/www/html/cicd
                 nohup python3 -m http.server ${APP_PORT} --bind 0.0.0.0 > server.log 2>&1 &
                 '''
                 sleep 5
